@@ -13,13 +13,13 @@
 // malloc(3)
 
 
-#include <strings.h>
+#include "libft.h"
 
 char *ft_strnew(size_t size)
 {
     char *new_string;
 
-    if (new_string = (char *)malloc(size * sizeof(char)))
+    if ((new_string = (char *)malloc(size * sizeof(char))))
     {
         memset(new_string, '\0', size);
         return (new_string);

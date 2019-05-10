@@ -1,15 +1,15 @@
-#include <stdlib.h>
-// #include <stdio.h>       // These three includes are for
-// #include <strings.h>     // tests
-// #include <unistd.h>
+#include "libft.h"
+//#include <stdio.h>       // These three includes are for
+//#include <strings.h>     // tests
+//#include <unistd.h>
 
 void *ft_memalloc(size_t n)
 {
     void *vp;
 
-    if (vp = malloc(n))
+    if ((vp = malloc(n)))
     {
-        bzero(vp, n); // change to ft_bzero
+        ft_bzero(vp, n); // change to ft_bzero
         return vp;
     }
     return NULL;
