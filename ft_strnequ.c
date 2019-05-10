@@ -22,10 +22,10 @@
 
 int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	int i;
+	size_t i;
 
-	i = -1;
-	while (++i < n)
+	i = 0;
+	while (i < n)
 	{
 		if (s1[i] != s2[i]) 
 			return 0;
@@ -33,6 +33,7 @@ int	ft_strnequ(char const *s1, char const *s2, size_t n)
 			return 1;
 		else if (!s1[i] || !s2[i])
 			return 0;
+		i++;
 	}
 	return 1;
 }
