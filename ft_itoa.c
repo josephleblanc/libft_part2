@@ -13,8 +13,6 @@
 // malloc(3)
 
 #include "libft.h"
-#include "limits.h"
-#include <stdio.h>		// Remove later!
 
 int	find_places(long long_n)
 {
