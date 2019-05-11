@@ -21,8 +21,6 @@
 
 #include "libft.h"
 
-#include <stdio.h>         // Don't forget to take this out!!!
-
 int ft_wc(char const *s, char c)
 {
     int pres;
@@ -60,34 +58,25 @@ char    **ft_strsplit(char const *s, char c)
     char **word_array;
     size_t array_i;
 
+	char *last_null;
+	char empty;
+	empty = '\0';
+	last_null = &empty;
+
     pres = 0;
     fut = pres + 1;
     array_i = 0;
-    if (!(word_array = (char**)malloc((ft_wc(s, c) + 1) * sizeof(char**))))
+    if (!(word_array = (char**)malloc((ft_wc(s, c) + 1) * sizeof(char*))))
         return (NULL);
     if (s[0] != c)
         word_array[array_i++] = ft_strsub(s, 0, word_length(s, 0, c));
     while (s[pres] && s[fut])
     {
-        if (pres == c && fut != c)
+        if (s[pres] == c && s[fut] != c)
             word_array[array_i++] = ft_strsub(s, fut, word_length(s, fut, c));
         pres++;
         fut++;
     }
-    word_array[array_i] = '\0';
+    word_array[array_i] = last_null;
     return word_array;
-}
-
-
-int main(void)
-{
-    char const s[] = "**hello***fellow*students***";
-    char **words;
-    size_t i;
-
-    words = ft_strsplit(s, '*');
-    i = 0;
-    while (*words)
-        printf("words[%li] = %s\n", i, words[i]);
-    return 0;
 }
